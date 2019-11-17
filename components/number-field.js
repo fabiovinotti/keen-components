@@ -3,6 +3,7 @@ import { KeenElement, html } from '../dependencies/keen-element/index.js';
 class NumberField extends KeenElement {
   constructor() {
     super();
+    this._inputElement = this.shadowRoot.querySelector('input');
     this._changeEvent = new Event('change', { 'bubbles': true, 'cancelable': false });
   }
 
