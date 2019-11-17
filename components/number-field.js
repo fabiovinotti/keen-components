@@ -4,6 +4,7 @@ class NumberField extends KeenElement {
   constructor() {
     super();
     this._inputElement = this.shadowRoot.querySelector('input');
+    this._inputEvent = new Event('input', { 'bubbles': true, 'cancelable': false });
     this._changeEvent = new Event('change', { 'bubbles': true, 'cancelable': false });
   }
 
@@ -54,6 +55,8 @@ class NumberField extends KeenElement {
     const buttonId = evt.currentTarget.id;
     const step = Number(this.step) || 1;
     const value = Number(this.value);
+
+    this.dispatchEvent(this._inputEvent);
 
     if (buttonId === 'decrease-button') {
 
