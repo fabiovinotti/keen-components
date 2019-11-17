@@ -32,7 +32,7 @@ class NumberField extends KeenElement {
       this.value = this.getAttribute('value');
     }
 
-    this.retrieve('input').addEventListener('change', this._onchange_input.bind(this));
+    this._inputElement.addEventListener('change', this._onchange_input.bind(this));
   }
 
   _onchange_input() {
@@ -78,10 +78,10 @@ class NumberField extends KeenElement {
   }
 
   get value() {
-    return this.retrieve('input').value;
+    return this._inputElement.value;
   }
   set value(value) {
-    this.retrieve('input').value = value;
+    this._inputElement.value = value;
   }
 
   get step() {
