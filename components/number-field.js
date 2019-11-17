@@ -111,7 +111,7 @@ class NumberField extends KeenElement {
       flex-wrap: no-wrap;
       align-item: center;
       user-select: none;
-      background-color: #f3f5fe;
+      background-color: #ebedf2;
       border-radius: 5px;
       font-size: 16px;
       color: #4b5c7e;
