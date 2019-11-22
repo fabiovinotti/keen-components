@@ -7,15 +7,27 @@ class KeenButton extends KeenElement {
 
   whenConnected() {
     if (this.hasAttribute('toggles')) {
-      this.addEventListener('mousedown', evt => {
-        if (evt.button !== 0) return;
-
-        if (this.hasAttribute('active')) {
-          this.removeAttribute('active');
-        } else {
-          this.setAttribute('active', '');
-        }
+      this.addEventListener('click', evt => {
+        if (evt.button === 0) this._toggle();
       });
+
+      this.addEventListener('touchstart', evt => {
+        this.addEventListener('touchend', evt.target._onTouchEnd);
+      });
+    }
+  }
+
+  _onTouchEnd(evt) {
+    this._toggle();
+    this.removeEventListener('touchend', this._onTouchEnd);
+    evt.preventDefault();
+  }
+
+  _toggle() {
+    if (this.hasAttribute('active')) {
+      this.removeAttribute('active');
+    } else {
+      this.setAttribute('active', '');
     }
   }
 
@@ -42,6 +54,7 @@ class KeenButton extends KeenElement {
       white-space: nowrap;
       position: relative;
       user-select: none;
+      -webkit-user-select: none;
       transition: all 0.2s ease-in-out;
     }
 
