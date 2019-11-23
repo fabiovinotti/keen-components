@@ -3,6 +3,7 @@ import { html, KeenElement } from '../dependencies/keen-element/index.js';
 class KeenButton extends KeenElement {
   constructor() {
     super();
+    this._changeEvent = new Event('change', { 'bubbles': true, 'cancelable': false });
   }
 
   whenConnected() {
@@ -29,6 +30,8 @@ class KeenButton extends KeenElement {
     } else {
       this.setAttribute('active', '');
     }
+
+    this.dispatchEvent(this._changeEvent);
   }
 
   template() {
