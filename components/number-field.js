@@ -121,17 +121,15 @@ class NumberField extends KeenElement {
     return `
     :host {
       width: 180px;
-      display: flex;
+      display: inline-flex;
       flex-wrap: no-wrap;
-      align-item: center;
+      align-items: stretch;
+      justify-content: space-between;
       user-select: none;
-      -webkit-user-select: none;
       background-color: #ebedf2;
       border-radius: 5px;
       font-size: 16px;
       color: #4b5c7e;
-      padding: 10px 20px;
-      box-sizing: border-box;
     }
 
     button,
@@ -146,12 +144,9 @@ class NumberField extends KeenElement {
       padding: 0;
     }
 
-    button,
-    input::placeholder {
-
-    }
-
     button {
+      max-width: 65px;
+      flex: 1;
       color: var(--buttons-color, #929292);
       cursor: pointer;
     }
@@ -161,12 +156,15 @@ class NumberField extends KeenElement {
       cursor: pointer;
     }
 
-    #decrease-button { margin-right: 20px; }
-    #increase-button { margin-left: 20px; }
-
     input {
-      width: 100%;
+      flex: 2;
+      min-width: 0; // Check!!!!!!!!!
       -moz-appearance: textfield;
+      padding: 10px;
+    }
+
+    :host([show-controls]) input {
+      padding: 10px 0;
     }
 
     input::-webkit-outer-spin-button,
