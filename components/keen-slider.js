@@ -99,7 +99,7 @@ class KeenSlider extends KeenElement {
 
   _updateUIElementStyles(newProgressLength) {
     this._progressLine.style.width = newProgressLength + 'px';
-    this._knob.style.left = `${newProgressLength - 9}px`;
+    this._knob.style.transform = `translateX(${newProgressLength}px)`;
   }
 
   set value(newValue) {
