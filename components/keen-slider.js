@@ -119,7 +119,7 @@ class KeenSlider extends KeenElement {
   }
 
   template() {
-    return html`
+    return `
     <div id="progress-bar">
       <div id="progress"></div>
     </div>

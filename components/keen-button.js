@@ -35,7 +35,7 @@ class KeenButton extends KeenElement {
   }
 
   template() {
-    return html`<slot>No content provided</slot>`;
+    return '<slot>No content provided</slot>';
   }
 
   styles() {

@@ -115,7 +115,7 @@ class NumberField extends KeenElement {
     this.setAttribute('max', value);
   }
 
-  template() { return html`<input type="number">`; }
+  template() { return '<input type="number">'; }
 
   styles() {
     return `

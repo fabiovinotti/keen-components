@@ -28,7 +28,7 @@ class TestimonialCard extends KeenElement {
   }
 
   template() {
-    return html`
+    return `
     <blockquote><slot></slot></blockquote>
     <div id="testimonial-info">
       <div>
