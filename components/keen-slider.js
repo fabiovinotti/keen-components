@@ -151,7 +151,7 @@ class KeenSlider extends KeenElement {
 
     #progress {
       width: 0;
-      background-color: var(--progress-color, #3699ff);
+      background-color: var(--slider-progress-color, #3699ff);
       border-radius: 2px 0 0 2px;
     }
 
