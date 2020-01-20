@@ -8,6 +8,7 @@ class KeenSlider extends KeenElement {
     this.max = 100;
     this._onSliding = this._onSliding.bind(this);
     this._onMouseUp = this._onMouseUp.bind(this);
+    this._displayProgress = this._displayProgress.bind(this);
 
     /* Cached Elements */
     this._progressBar = this.shadowRoot.querySelector('#progress-bar');
@@ -35,6 +36,7 @@ class KeenSlider extends KeenElement {
     this.addEventListener('mousedown', this._onMouseDown);
     this.addEventListener('touchstart', this._onTouchStart);
 
+    window.addEventListener('resize', this._displayProgress);
     this._displayProgress();
   }
 
@@ -42,6 +44,9 @@ class KeenSlider extends KeenElement {
     if (evt.button !== 0) return;
     this._onSliding(evt);
     window.addEventListener('mousemove', this._onSliding);
+  disconnectedCallback() {
+    window.removeEventListener('resize', this._displayProgress);
+  }
     window.addEventListener('mouseup', this._onMouseUp);
   }
 
