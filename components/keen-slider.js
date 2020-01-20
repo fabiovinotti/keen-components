@@ -43,7 +43,7 @@ class KeenSlider extends KeenElement {
     window.removeEventListener('resize', this._displayProgress);
   }
 
-  _onMouseDown(e) {console.log('aaaa');
+  _onMouseDown(e) {
     if (e.button != 0)
       return;
     this._pointerClientX = e.clientX;
